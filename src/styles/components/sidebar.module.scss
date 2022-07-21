@@ -1,12 +1,67 @@
+@import "../typography";
+
 .sidebar {
+  background-color: #e1e1e0f2;
+  height: 100vh;
+  width: 400px;
+  padding: 18px 12px;
+
   .sidebar__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+
     .list__item {
       .item__title {
+        color: #3c3c4366;
+        margin-bottom: 2px;
+
+        @include typography(11px, normal, 700, 13px, 0em, left);
       }
 
       .item__nav {
         .item__link {
+          display: flex;
+          align-items: center;
+          column-gap: 8px;
+          padding: 6px 8px;
+          border-radius: 6px;
+          transition: background-color 0.3s ease;
+          cursor: pointer;
+
+          svg {
+            path {
+              color: #007aff;
+              transition: color 0.1s ease;
+            }
+          }
+
+          &--selected {
+            background-color: #007aff;
+
+            &:hover {
+              background-color: #0272e9 !important;
+            }
+
+            .link__title {
+              color: white !important;
+            }
+
+            svg {
+              path {
+                color: white;
+              }
+            }
+          }
+
+          &:hover {
+            background-color: #c9c9c8;
+          }
+
           .link__title {
+            color: #434343;
+
+            @include typography(14px, normal, 500, 17px, 0em, left);
           }
         }
       }

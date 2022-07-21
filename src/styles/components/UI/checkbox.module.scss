@@ -1,0 +1,27 @@
+.checkbox {
+  height: 22px;
+  width: 40px;
+  background-color: rgba(60, 60, 67, 0.18);
+  border: 0.5px solid rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 100px;
+  transition: background-color 0.3s ease;
+
+  &__checked {
+    background-color: #007aff;
+
+    .checkbox__circle {
+      transform: translateX(90%);
+    }
+  }
+
+  .checkbox__circle {
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0.5px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+}

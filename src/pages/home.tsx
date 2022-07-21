@@ -1,18 +1,12 @@
 import React from "react";
 
 import Layout from "@components/Layout";
-import { fetchPosts } from "@utils/api";
+import SideBar from "@components/SideBar";
 
 const HomePage: React.FC = () => {
   return (
     <Layout>
-      <h1
-        onClick={async () => {
-          await fetchPosts({});
-        }}
-      >
-        Home Page
-      </h1>
+      <SideBar />
     </Layout>
   );
 };

@@ -22,9 +22,11 @@ export const fetchPosts: FetchPosts = async ({
       },
     };
 
-    const data = await axios.get(url, options);
+    const {
+      data: { data },
+    } = await axios.get(url, options);
 
-    console.log(data);
+    return data;
   } catch (error) {
     console.log(error);
   }

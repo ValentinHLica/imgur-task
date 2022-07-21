@@ -63,6 +63,11 @@ export type FetchPostsPayload = PayloadAction<{
 export type InitialState = {
   data: null | [];
   loading: boolean;
+  section?: SortSection;
+  sort?: SortType;
+  window?: SortWindow;
+  page?: number;
+  showViral?: boolean;
 };
 
 export type FetchPosts = (args: {
