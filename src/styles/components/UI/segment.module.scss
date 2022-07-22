@@ -1,0 +1,55 @@
+@import "../../typography";
+
+.segment {
+  border-radius: 6px;
+  background: white;
+  box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+
+  &--disabled {
+    background: rgb(207, 207, 207);
+
+    .segment__item {
+      &--selected {
+        background-color: rgb(184, 184, 184) !important;
+      }
+    }
+  }
+
+  .segment__item {
+    position: relative;
+    padding: 4px 10px;
+    margin: 2px;
+    border-radius: 6px;
+    color: #3d3d3d;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+
+    &--selected {
+      background-color: #007aff;
+      border: 0.5px solid rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.2);
+      color: white;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: -3px;
+      top: 4px;
+      bottom: 4px;
+      width: 1px;
+      background-color: #8e8e933a;
+    }
+
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+
+    @include typography(14px, normal, 500, 17px, 0em, center);
+  }
+}

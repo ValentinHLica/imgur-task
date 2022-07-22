@@ -27,7 +27,6 @@
           padding: 6px 8px;
           border-radius: 6px;
           transition: background-color 0.3s ease;
-          cursor: pointer;
 
           svg {
             path {
@@ -39,10 +38,6 @@
           &--selected {
             background-color: #007aff;
 
-            &:hover {
-              background-color: #0272e9 !important;
-            }
-
             .link__title {
               color: white !important;
             }
@@ -52,10 +47,6 @@
                 color: white;
               }
             }
-          }
-
-          &:hover {
-            background-color: #c9c9c8;
           }
 
           .link__title {

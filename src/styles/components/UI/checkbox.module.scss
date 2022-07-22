@@ -6,6 +6,7 @@
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.05);
   border-radius: 100px;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 
   &__checked {
     background-color: #007aff;
