@@ -17,7 +17,7 @@ const Card: React.FC<PostItem> = ({ title, score, downs, ups, images }) => {
             <source src={images[0].link}></source>
           </video>
         ) : (
-          <img src={images[0].link} />
+          <img src={images[0].link} loading="lazy" />
         )}
       </div>
 
