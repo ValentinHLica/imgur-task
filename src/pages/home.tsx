@@ -12,9 +12,10 @@ import { Card } from "@components/UI";
 
 import { fetchPosts } from "@utils/api";
 
-const HomePage: React.FC = () => {
-  const firstLoad = useRef<boolean>(false);
+import styles from "@styles/pages/home.module.scss";
+import { SpinnerIcon } from "@components/CustomIcons";
 
+const HomePage: React.FC = () => {
   const { data, loading, section, sort, window, page, showViral } = useSelector(
     (state: { posts: InitialState }) => state.posts
   );
@@ -28,6 +29,7 @@ const HomePage: React.FC = () => {
       sort,
       window,
       showViral,
+      page: 1,
     });
 
     dispatch(setPosts(data));
@@ -35,32 +37,23 @@ const HomePage: React.FC = () => {
   };
 
   useEffect(() => {
-    if (firstLoad.current) {
-      getFiltratedPosts();
-    }
+    getFiltratedPosts();
   }, [section, sort, window, showViral]);
-
-  const getPosts = async () => {
-    dispatch(setLoading(true));
-
-    const data = await fetchPosts({});
-
-    firstLoad.current = true;
-
-    dispatch(setPosts(data));
-    dispatch(setLoading(false));
-  };
-
-  useEffect(() => {
-    getPosts();
-  }, []);
 
   return (
     <Layout>
-      <SideBar />
+      <div className={styles.wrapper}>
+        <SideBar />
 
-      <div>
-        {data && data.map((item, index) => <Card key={index} {...item} />)}
+        {loading ? (
+          <div className={styles.spinner}>
+            <SpinnerIcon />
+          </div>
+        ) : (
+          <ul className={styles.posts}>
+            {data && data.map((item, index) => <Card key={index} {...item} />)}
+          </ul>
+        )}
       </div>
     </Layout>
   );
