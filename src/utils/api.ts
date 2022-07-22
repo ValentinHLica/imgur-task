@@ -20,7 +20,7 @@ export const fetchPosts: FetchPosts = async ({
   try {
     const options = {
       headers: {
-        Authorization: `${process.env.REACT_APP_IMGUR_CLIENT_ID}`,
+        Authorization: `Client-ID ${process.env.REACT_APP_IMGUR_CLIENT_ID}`,
       },
     };
 
