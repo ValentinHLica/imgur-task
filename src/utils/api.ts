@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { FetchPosts } from "@interface/posts";
+import { FetchPosts, PostItem } from "@interface/posts";
 
 export const fetchPosts: FetchPosts = async ({
   section = "hot",
@@ -28,8 +28,9 @@ export const fetchPosts: FetchPosts = async ({
       data: { data },
     } = await axios.get(url, options);
 
-    return data;
+    return data as PostItem[];
   } catch (error) {
     console.log(error);
+    return [];
   }
 };
