@@ -35,7 +35,7 @@ const HomePage: React.FC = () => {
   };
 
   useEffect(() => {
-    if (firstLoad) {
+    if (firstLoad.current) {
       getFiltratedPosts();
     }
   }, [section, sort, window, showViral]);
