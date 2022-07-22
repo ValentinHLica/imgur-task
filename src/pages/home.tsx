@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
@@ -13,6 +13,8 @@ import { Card } from "@components/UI";
 import { fetchPosts } from "@utils/api";
 
 const HomePage: React.FC = () => {
+  const firstLoad = useRef<boolean>(false);
+
   const { data, loading, section, sort, window, page, showViral } = useSelector(
     (state: { posts: InitialState }) => state.posts
   );
@@ -33,13 +35,17 @@ const HomePage: React.FC = () => {
   };
 
   useEffect(() => {
-    getFiltratedPosts();
+    if (firstLoad) {
+      getFiltratedPosts();
+    }
   }, [section, sort, window, showViral]);
 
   const getPosts = async () => {
     dispatch(setLoading(true));
 
     const data = await fetchPosts({});
+
+    firstLoad.current = true;
 
     dispatch(setPosts(data));
     dispatch(setLoading(false));
@@ -54,9 +60,7 @@ const HomePage: React.FC = () => {
       <SideBar />
 
       <div>
-        {data &&
-          data.length > 0 &&
-          data.map((item, index) => <Card key={index} {...item} />)}
+        {data && data.map((item, index) => <Card key={index} {...item} />)}
       </div>
     </Layout>
   );
