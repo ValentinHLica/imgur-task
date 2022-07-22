@@ -15,6 +15,8 @@ export const fetchPosts: FetchPosts = async ({
     section === "top" ? `/${window}` : ""
   }/${page}?showViral=${showViral}`;
 
+  console.log(url);
+
   try {
     const options = {
       headers: {

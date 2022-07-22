@@ -2,14 +2,15 @@
 
 .segment {
   border-radius: 6px;
-  background: white;
+  background-color: white;
   box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   display: flex;
   align-items: center;
+  transition: background-color 0.3s ease;
 
   &--disabled {
-    background: rgb(207, 207, 207);
+    background-color: rgb(207, 207, 207);
 
     .segment__item {
       &--selected {
