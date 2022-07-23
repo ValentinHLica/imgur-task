@@ -9,6 +9,7 @@ export type PostItem = {
     description: string | null;
     type: string;
     link: string;
+    size: number;
   }[];
 };
 
@@ -32,6 +33,7 @@ export type InitialState = {
   window?: SortWindow;
   page?: number;
   showViral?: boolean;
+  modalPost: null | PostItem;
 };
 
 export type FetchPosts = (args: {

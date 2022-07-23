@@ -16,6 +16,7 @@ const initialState: InitialState = {
   window: "day",
   page: 1,
   showViral: true,
+  modalPost: null,
 };
 
 export const posts = createSlice({
@@ -43,6 +44,9 @@ export const posts = createSlice({
     setShowViral: (state, action: PayloadAction<boolean>) => {
       state.showViral = action.payload;
     },
+    setModalPost: (state, action: PayloadAction<PostItem>) => {
+      state.modalPost = action.payload;
+    },
   },
 });
 
@@ -53,6 +57,7 @@ export const {
   setSection,
   setWindow,
   setSort,
+  setModalPost,
 } = posts.actions;
 
 export default posts.reducer;

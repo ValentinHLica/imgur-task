@@ -1,0 +1,37 @@
+.modal__background {
+  background-color: rgba(0, 0, 0, 0.493);
+  opacity: 0.6;
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+  height: 80vh;
+  margin: auto;
+  transform: scale(1);
+  border-radius: 6px;
+  background-color: white;
+  padding: 30px;
+
+  &__hidden {
+    transform: scale(0.9);
+  }
+}
+
+.modal,
+.modal__background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: visibility 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2;
+
+  &__hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+}

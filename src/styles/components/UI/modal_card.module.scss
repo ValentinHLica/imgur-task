@@ -1,0 +1,17 @@
+.card {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+
+  .card__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img,
+    video {
+      max-width: 60vw;
+      max-height: 60vh;
+    }
+  }
+}

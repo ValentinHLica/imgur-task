@@ -55,7 +55,7 @@
           .link__title {
             color: #434343;
 
-            @include typography(14px, normal, 500, 17px, 0em, left);
+            @include typography(14px, normal, 400, 17px, 0em, left);
           }
         }
       }

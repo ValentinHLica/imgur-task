@@ -1,24 +1,26 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
 import { InitialState } from "@interface/posts";
 
-import { setLoading, setPosts } from "@state/posts";
+import { setLoading, setModalPost, setPosts } from "@state/posts";
 
 import Layout from "@components/Layout";
 import SideBar from "@components/SideBar";
-import { Card } from "@components/UI";
+import { Card, Modal } from "@components/UI";
+import { SpinnerIcon } from "@components/CustomIcons";
 
 import { fetchPosts } from "@utils/api";
 
 import styles from "@styles/pages/home.module.scss";
-import { SpinnerIcon } from "@components/CustomIcons";
+import ModalCard from "@components/UI/ModalCard";
 
 const HomePage: React.FC = () => {
-  const { data, loading, section, sort, window, page, showViral } = useSelector(
-    (state: { posts: InitialState }) => state.posts
-  );
+  const [visibleModal, setVisibleModal] = useState<boolean>(false);
+
+  const { data, loading, section, sort, window, showViral, modalPost } =
+    useSelector((state: { posts: InitialState }) => state.posts);
   const dispatch = useDispatch();
 
   const getFiltratedPosts = async () => {
@@ -38,6 +40,7 @@ const HomePage: React.FC = () => {
 
   useEffect(() => {
     getFiltratedPosts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [section, sort, window, showViral]);
 
   return (
@@ -51,10 +54,24 @@ const HomePage: React.FC = () => {
           </div>
         ) : (
           <ul className={styles.posts}>
-            {data && data.map((item, index) => <Card key={index} {...item} />)}
+            {data &&
+              data.map((item, index) => (
+                <Card
+                  key={index}
+                  onClick={() => {
+                    setVisibleModal(true);
+                    dispatch(setModalPost(item));
+                  }}
+                  {...item}
+                />
+              ))}
           </ul>
         )}
       </div>
+
+      <Modal visible={visibleModal} setVisible={setVisibleModal}>
+        {modalPost && visibleModal && <ModalCard {...modalPost} />}
+      </Modal>
     </Layout>
   );
 };

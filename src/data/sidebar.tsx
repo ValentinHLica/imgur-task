@@ -112,7 +112,7 @@ export default () => {
           icon: null,
           children: (
             <Segment
-              disabled={section !== "hot"}
+              disabled={section !== "top"}
               items={[
                 {
                   title: "top",

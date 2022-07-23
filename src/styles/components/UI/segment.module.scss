@@ -3,7 +3,6 @@
 .segment {
   border-radius: 6px;
   background-color: white;
-  box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -49,6 +48,6 @@
       }
     }
 
-    @include typography(14px, normal, 500, 17px, 0em, center);
+    @include typography(14px, normal, 400, 17px, 0em, center);
   }
 }

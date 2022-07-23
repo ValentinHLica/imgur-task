@@ -1,7 +1,6 @@
 .card {
   background-color: rgba(60, 60, 67, 0.18);
   border: 0.5px solid rgba(0, 0, 0, 0.12);
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.05);
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
@@ -22,5 +21,6 @@
     white-space: nowrap;
     overflow: hidden;
     padding: 5px;
+    font-weight: 400;
   }
 }
