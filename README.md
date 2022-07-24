@@ -16,7 +16,7 @@ npm i && npm start
 
 - [ ] pagination is a plus
 - [ ] Implementing unit tests is a plus: Jest + react-testing-library / enzyme.
-- [ ] Provide a Readme file with documentation on your approach, including project local setup instructions.
+- [x] Provide a Readme file with documentation on your approach, including project local setup instructions.
 - [x] Refactor
 - [x] Code linter.
 - [x] consume the Imgur API: https://api.imgur.com/ (check documentation for the api https://apidocs.imgur.com)
