@@ -17,7 +17,7 @@ const Modal: React.FC<Props> = ({ visible, setVisible, children }) => (
       onClick={() => setVisible(false)}
       role="button"
       tabIndex={0}
-      onKeyDown={() => {}}
+      onKeyDown={undefined}
       aria-label="Modal Background"
     />
     <div className={`${styles.modal} ${!visible ? styles.modal__hidden : ""}`}>

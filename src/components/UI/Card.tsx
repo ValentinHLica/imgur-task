@@ -9,7 +9,7 @@ type Props = PostItem & {
 };
 
 const Card: React.FC<Props> = ({ title, images, onClick }) => {
-  if (!images) {
+  if (!images || images.length === 0) {
     return null;
   }
 
@@ -19,12 +19,12 @@ const Card: React.FC<Props> = ({ title, images, onClick }) => {
       onClick={onClick}
       role="button"
       tabIndex={0}
-      onKeyDown={() => {}}
+      onKeyDown={undefined}
     >
       <div className={styles.card__content}>
         {images[0].link.endsWith("mp4") ? (
           // eslint-disable-next-line jsx-a11y/media-has-caption
-          <video autoPlay controls>
+          <video>
             <source src={images[0].link} />
           </video>
         ) : (
@@ -38,7 +38,7 @@ const Card: React.FC<Props> = ({ title, images, onClick }) => {
 };
 
 Card.defaultProps = {
-  onClick: () => {},
+  onClick: undefined,
 };
 
 export default Card;

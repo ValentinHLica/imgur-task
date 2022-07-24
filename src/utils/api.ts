@@ -1,6 +1,14 @@
 import axios from "axios";
 
-import { FetchPosts, PostItem } from "@interface/posts";
+import { PostItem, SortSection, SortType, SortWindow } from "@interface/posts";
+
+export type FetchPosts = (args: {
+  section?: SortSection;
+  sort?: SortType;
+  window?: SortWindow;
+  page?: number;
+  showViral?: boolean;
+}) => Promise<PostItem[]>;
 
 const fetchPosts: FetchPosts = async ({
   section = "hot",
@@ -9,13 +17,13 @@ const fetchPosts: FetchPosts = async ({
   page = 1,
   showViral = true,
 }) => {
-  const apiURL = process.env.REACT_APP_IMGUR_API_URL;
-
-  const url = `${apiURL}/gallery/${section}/${sort}${
-    section === "top" ? `/${window}` : ""
-  }/${page}?showViral=${showViral}`;
-
   try {
+    const url = `${
+      process.env.REACT_APP_IMGUR_API_URL
+    }/gallery/${section}/${sort}${
+      section === "top" ? `/${window}` : ""
+    }/${page}?showViral=${showViral}`;
+
     const options = {
       headers: {
         Authorization: `Client-ID ${process.env.REACT_APP_IMGUR_CLIENT_ID}`,

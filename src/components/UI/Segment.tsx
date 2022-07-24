@@ -31,7 +31,7 @@ const Segment: React.FC<Props> = ({ items, disabled = false }) => (
         // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
         role="button"
         tabIndex={0}
-        onKeyDown={() => {}}
+        onKeyDown={undefined}
       >
         {title}
       </li>

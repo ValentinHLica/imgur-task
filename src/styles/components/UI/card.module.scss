@@ -1,9 +1,11 @@
+@import "../../variables";
+
 .card {
-  background-color: rgba(60, 60, 67, 0.18);
-  border: 0.5px solid rgba(0, 0, 0, 0.12);
-  border-radius: 6px;
+  border-radius: $border-radius;
+  border: 1px solid $background;
   overflow: hidden;
   cursor: pointer;
+  padding: 10px;
 
   .card__content {
     max-height: 200px;
@@ -20,6 +22,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    padding: 5px;
+    padding-top: 10px;
+    font-weight: 400;
   }
 }

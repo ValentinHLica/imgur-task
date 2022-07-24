@@ -13,7 +13,7 @@ const CheckBox: React.FC<Props> = ({ checked = false, onClick }) => (
     onClick={onClick}
     role="button"
     tabIndex={0}
-    onKeyDown={() => {}}
+    onKeyDown={undefined}
   >
     <div className={styles.checkbox__circle} />
   </div>
@@ -21,7 +21,7 @@ const CheckBox: React.FC<Props> = ({ checked = false, onClick }) => (
 
 CheckBox.defaultProps = {
   checked: false,
-  onClick: () => {},
+  onClick: undefined,
 };
 
 export default CheckBox;

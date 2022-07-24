@@ -6,7 +6,6 @@ import { CheckBox, Segment } from "@components/UI";
 import { setSection, setShowViral, setSort, setWindow } from "@state/posts";
 import { InitialState } from "@interface/posts";
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default () => {
   const { showViral, window, sort, section } = useSelector(
     (state: { posts: InitialState }) => state.posts,
@@ -20,10 +19,6 @@ export default () => {
         {
           title: "Hot",
           icon: <HotCoffeIcon />,
-          children: null,
-          onClick: () => {
-            dispatch(setSection("hot"));
-          },
         },
         {
           title: "Top",

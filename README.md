@@ -15,10 +15,10 @@ npm i && npm start
 ## 🪣 Requirements
 
 - [ ] pagination is a plus
-- [ ] Code linter.
 - [ ] Implementing unit tests is a plus: Jest + react-testing-library / enzyme.
 - [ ] Provide a Readme file with documentation on your approach, including project local setup instructions.
-- [ ] Refactor
+- [x] Refactor
+- [x] Code linter.
 - [x] consume the Imgur API: https://api.imgur.com/ (check documentation for the api https://apidocs.imgur.com)
 - [x] show gallery images in a grid of thumbnails;
 - [x] show image description in the thumbnail, top or bottom;
@@ -35,3 +35,4 @@ npm i && npm start
 
 - [Create React App project with TypeScript](https://create-react-app.dev/docs/adding-typescript/)
 - [Getting Started with Redux](https://redux.js.org/tutorials/quick-start)
+- [ESLint with VSCode, Prettier, Husky and React For Beginners](https://www.youtube.com/watch?v=ZXW6Jn6or1w)

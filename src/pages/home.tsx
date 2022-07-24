@@ -2,19 +2,18 @@ import React, { useEffect, useState } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { InitialState } from "@interface/posts";
-
 import { setLoading, setModalPost, setPosts } from "@state/posts";
+
+import { InitialState } from "@interface/posts";
 
 import Layout from "@components/Layout";
 import SideBar from "@components/SideBar";
-import { Card, Modal } from "@components/UI";
+import { Card, Modal, ModalCard } from "@components/UI";
 import { SpinnerIcon } from "@components/CustomIcons";
 
 import fetchPosts from "@utils/api";
 
 import styles from "@styles/pages/home.module.scss";
-import ModalCard from "@components/UI/ModalCard";
 
 const HomePage: React.FC = () => {
   const [visibleModal, setVisibleModal] = useState<boolean>(false);

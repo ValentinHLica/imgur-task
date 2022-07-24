@@ -35,7 +35,7 @@ const SideBar: React.FC = () => {
                   // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
                   role="button"
                   tabIndex={0}
-                  onKeyDown={() => {}}
+                  onKeyDown={undefined}
                 >
                   {icon} {children}
                   <h3 className={styles.link__title}>{title}</h3>
