@@ -19,6 +19,9 @@ export default () => {
         {
           title: "Hot",
           icon: <HotCoffeIcon />,
+          onClick: () => {
+            dispatch(setSection("hot"));
+          },
         },
         {
           title: "Top",
