@@ -1,16 +1,15 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { HotCoffeIcon, NewsPaperIcon, UserIcon } from "@components/CustomIcons";
 import { CheckBox, Segment } from "@components/UI";
 import { setSection, setShowViral, setSort, setWindow } from "@state/posts";
-import { useSelector } from "react-redux";
 import { InitialState } from "@interface/posts";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default () => {
   const { showViral, window, sort, section } = useSelector(
-    (state: { posts: InitialState }) => state.posts
+    (state: { posts: InitialState }) => state.posts,
   );
   const dispatch = useDispatch();
 

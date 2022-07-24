@@ -11,7 +11,7 @@ import SideBar from "@components/SideBar";
 import { Card, Modal } from "@components/UI";
 import { SpinnerIcon } from "@components/CustomIcons";
 
-import { fetchPosts } from "@utils/api";
+import fetchPosts from "@utils/api";
 
 import styles from "@styles/pages/home.module.scss";
 import ModalCard from "@components/UI/ModalCard";
@@ -26,7 +26,7 @@ const HomePage: React.FC = () => {
   const getFiltratedPosts = async () => {
     dispatch(setLoading(true));
 
-    const data = await fetchPosts({
+    const postsData = await fetchPosts({
       section,
       sort,
       window,
@@ -34,7 +34,7 @@ const HomePage: React.FC = () => {
       page: 1,
     });
 
-    dispatch(setPosts(data));
+    dispatch(setPosts(postsData));
     dispatch(setLoading(false));
   };
 
@@ -55,14 +55,19 @@ const HomePage: React.FC = () => {
         ) : (
           <ul className={styles.posts}>
             {data &&
-              data.map((item, index) => (
+              data.map((item) => (
                 <Card
-                  key={index}
+                  key={item.id}
                   onClick={() => {
                     setVisibleModal(true);
                     dispatch(setModalPost(item));
                   }}
-                  {...item}
+                  id={item.id}
+                  downs={item.downs}
+                  ups={item.ups}
+                  images={item.images}
+                  score={item.score}
+                  title={item.title}
                 />
               ))}
           </ul>
@@ -70,7 +75,16 @@ const HomePage: React.FC = () => {
       </div>
 
       <Modal visible={visibleModal} setVisible={setVisibleModal}>
-        {modalPost && visibleModal && <ModalCard {...modalPost} />}
+        {modalPost && visibleModal && (
+          <ModalCard
+            id={modalPost.id}
+            downs={modalPost.downs}
+            ups={modalPost.ups}
+            images={modalPost.images}
+            score={modalPost.score}
+            title={modalPost.title}
+          />
+        )}
       </Modal>
     </Layout>
   );

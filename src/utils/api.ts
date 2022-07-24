@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { FetchPosts, PostItem } from "@interface/posts";
 
-export const fetchPosts: FetchPosts = async ({
+const fetchPosts: FetchPosts = async ({
   section = "hot",
   sort = "viral",
   window = "day",
@@ -14,8 +14,6 @@ export const fetchPosts: FetchPosts = async ({
   const url = `${apiURL}/gallery/${section}/${sort}${
     section === "top" ? `/${window}` : ""
   }/${page}?showViral=${showViral}`;
-
-  console.log(url);
 
   try {
     const options = {
@@ -30,7 +28,9 @@ export const fetchPosts: FetchPosts = async ({
 
     return data as PostItem[];
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return [];
   }
 };
+
+export default fetchPosts;

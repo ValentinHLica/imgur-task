@@ -12,12 +12,12 @@ import reportWebVitals from "./reportWebVitals";
 import "@styles/main.scss";
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById("root") as HTMLElement,
 );
 root.render(
   <Provider store={store}>
     <Home />
-  </Provider>
+  </Provider>,
 );
 
 reportWebVitals();

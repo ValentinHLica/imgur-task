@@ -1,6 +1,7 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 
 export type PostItem = {
+  id: string;
   title: string;
   ups: number;
   downs: number;

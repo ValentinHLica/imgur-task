@@ -14,11 +14,18 @@ const Card: React.FC<Props> = ({ title, images, onClick }) => {
   }
 
   return (
-    <div className={styles.card} onClick={onClick}>
+    <div
+      className={styles.card}
+      onClick={onClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={() => {}}
+    >
       <div className={styles.card__content}>
         {images[0].link.endsWith("mp4") ? (
-          <video>
-            <source src={images[0].link}></source>
+          // eslint-disable-next-line jsx-a11y/media-has-caption
+          <video autoPlay controls>
+            <source src={images[0].link} />
           </video>
         ) : (
           <img src={images[0].link} loading="lazy" alt="img" />
@@ -28,6 +35,10 @@ const Card: React.FC<Props> = ({ title, images, onClick }) => {
       <h4 className={styles.card__title}>{title}</h4>
     </div>
   );
+};
+
+Card.defaultProps = {
+  onClick: () => {},
 };
 
 export default Card;
