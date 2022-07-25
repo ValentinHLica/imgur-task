@@ -10,6 +10,8 @@
   .card__content {
     max-height: 200px;
     overflow: hidden;
+    height: 100%;
+    background-color: $background;
 
     img,
     video {
