@@ -14,7 +14,7 @@ npm i && npm start
 
 ## 🪣 Requirements
 
-- [ ] pagination is a plus
+- [x] pagination is a plus
 - [ ] Implementing unit tests is a plus: Jest + react-testing-library / enzyme.
 - [x] Provide a Readme file with documentation on your approach, including project local setup instructions.
 - [x] Refactor

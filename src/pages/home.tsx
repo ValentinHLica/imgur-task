@@ -18,7 +18,7 @@ import styles from "@styles/pages/home.module.scss";
 const HomePage: React.FC = () => {
   const [visibleModal, setVisibleModal] = useState<boolean>(false);
 
-  const { data, loading, section, sort, window, showViral, modalPost } =
+  const { data, loading, section, sort, window, showViral, modalPost, page } =
     useSelector((state: { posts: InitialState }) => state.posts);
   const dispatch = useDispatch();
 
@@ -30,7 +30,7 @@ const HomePage: React.FC = () => {
       sort,
       window,
       showViral,
-      page: 1,
+      page,
     });
 
     dispatch(setPosts(postsData));
@@ -40,7 +40,7 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     getFiltratedPosts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [section, sort, window, showViral]);
+  }, [section, sort, window, showViral, page]);
 
   return (
     <Layout>

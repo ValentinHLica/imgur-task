@@ -2,12 +2,12 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { HotCoffeIcon, NewsPaperIcon, UserIcon } from "@components/CustomIcons";
-import { CheckBox, Segment } from "@components/UI";
+import { CheckBox, Pagination, Segment } from "@components/UI";
 import { setSection, setShowViral, setSort, setWindow } from "@state/posts";
 import { InitialState } from "@interface/posts";
 
 export default () => {
-  const { showViral, window, sort, section } = useSelector(
+  const { showViral, window, sort, section, page } = useSelector(
     (state: { posts: InitialState }) => state.posts,
   );
   const dispatch = useDispatch();
@@ -157,6 +157,17 @@ export default () => {
             />
           ),
           onClick: () => {},
+        },
+      ],
+    },
+    {
+      title: "Pagination",
+      items: [
+        {
+          title: "",
+          children: <Pagination number={page} />,
+          onClick: () => {},
+          icon: null,
         },
       ],
     },

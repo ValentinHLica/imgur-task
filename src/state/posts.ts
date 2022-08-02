@@ -58,6 +58,7 @@ export const {
   setWindow,
   setSort,
   setModalPost,
+  setPage,
 } = posts.actions;
 
 export default posts.reducer;
